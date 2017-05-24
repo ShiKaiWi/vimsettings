@@ -3,6 +3,8 @@ syntax enable
 syntax on
 colorscheme default
 filetype indent on
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 " 将制表符扩展为空格
 set expandtab
 " 设置编辑时制表符占用空格数
@@ -91,9 +93,9 @@ set shellslash
 nmap <Leader>lb 0
 nmap <Leader>le $
 " 设置快捷键将选中文本块复制至系统剪贴板
-vnoremap <Leader>y "+y
+vnoremap <Leader>y "*y
 " 设置快捷键将系统剪贴板内容粘贴至 vim
-nmap <Leader>p "+p
+nmap <Leader>p "*p
 " 定义快捷键关闭当前分割窗口
 nmap <Leader>q :q<CR>
 " 定义快捷键保存当前窗口内容
@@ -189,23 +191,36 @@ nmap <leader>rs :OpenSession my<cr>
 
 nnoremap <space> i<space><esc>
 " nnoremap <tab> i<tab><esc>l
-inoremap <leader>w <esc>:w<cr>l
+inoremap <leader>w <esc>:w<cr>
 cnoremap <expr> %% getcmdtype()==':'?expand('%:h').'/':'%%'
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+" this is ycm's config
 " this part includes YCM's options
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:EclimCompletionMethod = 'omnifunc'
-let g:ycm_python_binary_path = 'python3'
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_min_num_identifier_candidate_chars = 8
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-highlight YcmErrorLine guibg=#3f0000
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-nnoremap <leader>jh :YcmCompleter GoToInclude<CR>
+" let g:ycm_python_binary_path = 'python'
+" let g:ycm_min_num_of_chars_for_completion = 2
+" let g:ycm_min_num_identifier_candidate_chars = 8
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" highlight YcmErrorLine guibg=#3f0000
+" use elcim
+" let g:EclimCompletionMethod = 'omnifunc'
+" nnoremap <leader>jd :YcmCompleter GoTo<CR>
+" nnoremap <leader>jh :YcmCompleter GoToInclude<CR>
+
 color desert
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 " set the folder color
 highlight Folded ctermbg = 0
-nnoremap <leader>s dlp
+
+
+" vim-javascript setting
+" Enables syntax highlighting for JSDocs
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+
+" vim-typescript setting
+setlocal indentkeys+=0
