@@ -224,3 +224,6 @@ set foldmethod=syntax
 
 " vim-typescript setting
 setlocal indentkeys+=0
+
+" ctrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
