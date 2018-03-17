@@ -33,6 +33,9 @@ Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mileszs/ack.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimshell.vim'
+
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -89,11 +92,11 @@ let g:session_autoload=0
 """"""""""""""""""""""""""""""
 """ Color: settings
 """"""""""""""""""""""""""""""
-color dracula
-" set bg=light
-" color desert
-" hi CursorLine term=bold cterm=bold guibg=Grey40
-" highlight Folded ctermbg = 0
+" color dracula
+set bg=light
+color desert
+hi CursorLine term=bold cterm=bold guibg=Grey40
+highlight Folded ctermbg = 0
 
 """"""""""""""""""""""""""""""
 " leader settings
@@ -114,6 +117,7 @@ autocmd FileType apache setlocal commentstring=#\ %s
 """"""""""""""""""""""""""""""
 """ shortcuts 
 """"""""""""""""""""""""""""""
+nmap - G
 vnoremap <Leader>y "*y
 nmap <Leader>p "*p
 nmap <Leader>q :q<CR>
