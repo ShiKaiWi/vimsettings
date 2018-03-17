@@ -1,0 +1,65 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.macOptionIsMeta": true,
+    "editor.cursorBlinking": "solid",
+    "editor.smoothScrolling": true,
+    "search.smartCase": true,
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.fontAliasing": "auto",
+    "window.zoomLevel": 0,
+    "window.openFoldersInNewWindow": "on",
+    "git.confirmSync": false,
+    "eslint.autoFixOnSave": true,
+    "tslint.autoFixOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[go]": {
+        "editor.insertSpaces": false
+    },
+    "[scss]": {
+        "editor.tabSize": 2
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true
+    },
+    "vim.leader": "<space>",
+    "vim.hlsearch": true,
+    "vim.foldfix": true,
+    "vim.history": 500,
+    "vim.enableNeovim": true,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        }
+    ],
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": true,
+    "python.linting.pep8Args": [
+        "--max-line-length=240"
+    ],
+    "html.format.enable": false,
+    "workbench.startupEditor": "newUntitledFile",
+}

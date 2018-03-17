@@ -19,6 +19,8 @@ if [ ! -d ~/bin ]; then
 fi
 cp -R ./bash_utils/custom_commands/ ~/bin
 
+# deploy the vscode settings
+cp -R ./vscode/ ~/Library/Application Support/Code/User/
 
 # clear all the submodules
 git submodule deinit --all
