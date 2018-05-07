@@ -7,7 +7,7 @@ git submodule update $vundle_module
 
 # deploy the .vim and .vimrc to $HOME
 rm -rf ~/.vimrc ~/.vim
-cp -r .vimrc .vim ~/
+cp -r vim/.vimrc vim/.vim ~/
 vim +PluginInstall +qall
 
 git submodule deinit $vundle_module
