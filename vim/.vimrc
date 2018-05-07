@@ -101,7 +101,7 @@ highlight Folded ctermbg = 0
 """"""""""""""""""""""""""""""
 " leader settings
 """"""""""""""""""""""""""""""
-let mapleader=";"
+" let mapleader=";"
 
 
 """"""""""""""""""""""""""""""
