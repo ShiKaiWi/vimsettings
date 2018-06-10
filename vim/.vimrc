@@ -35,6 +35,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mileszs/ack.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
+Plugin 'rust-lang/rust.vim'
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -78,7 +79,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set incsearch
-set wrap
+set nowrap
 set ignorecase
 set nocompatible
 set ruler
