@@ -36,6 +36,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -74,7 +75,7 @@ filetype plugin indent on
 set foldmethod=syntax
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-set expandtab
+" set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -119,6 +120,8 @@ autocmd FileType apache setlocal commentstring=#\ %s
 """ shortcuts 
 """"""""""""""""""""""""""""""
 nmap - G
+nmap <S-J> 3j
+nmap <S-K> 3k
 vnoremap <Leader>y "*y
 nmap <Leader>p "*p
 nmap <Leader>q :q<CR>
@@ -154,12 +157,6 @@ let g:javascript_plugin_flow = 1
 setlocal indentkeys+=0
   
 """"""""""""""""""""""""""""""
-" Plugin: vim-CtrlP 
-"""""""""""""""""""""""""""""" 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-
-""""""""""""""""""""""""""""""
 " Plugin: vim-go
 """""""""""""""""""""""""""""" 
 autocmd FileType go nmap tl gd
@@ -174,6 +171,15 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'find %s -type f'
 
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 """""""""""""""""""""""""""""
 " Plugin: nerdtree-git-plugin 
