@@ -14,29 +14,37 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 " plugin on GitHub repo
-Plugin 'tpope/vim-commentary'
-Plugin 'ap/vim-buftabline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin.git'
+" language
 Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'pangloss/vim-javascript.git'
 Plugin 'mxw/vim-jsx'
-Plugin 'leafgarland/typescript-vim.git'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'leafgarland/typescript-vim.git'
+
+" editor
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround.git'
 Plugin 'xolox/vim-misc'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'xolox/vim-session'
 Plugin 'kshenoy/vim-signature'
-Plugin 'tpope/vim-surround.git'
+
+" utils
+Plugin 'Shougo/vimproc.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+
+" window
+Plugin 'ap/vim-buftabline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin.git'
+
+" theme
 Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mileszs/ack.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -107,17 +115,12 @@ highlight Folded ctermbg = 0
 
 
 """"""""""""""""""""""""""""""
-""" CMD: commentary 
+""" CMD: commentary
 """"""""""""""""""""""""""""""
 autocmd FileType apache setlocal commentstring=#\ %s
 
 """"""""""""""""""""""""""""""
-""" Plugin: pathogen
-""""""""""""""""""""""""""""""
-" execute pathogen#infect()
-
-""""""""""""""""""""""""""""""
-""" shortcuts 
+""" shortcuts
 """"""""""""""""""""""""""""""
 nmap - G
 nmap <S-J> 3j
@@ -135,7 +138,7 @@ nnoremap <silent> <C-L> :<C-U>nohlsearch<CR><C-L>
 
 """"""""""""""""""""""""""""""
 " Plugin: NERDTree
-"""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""
 nnoremap <C-B> :NERDTreeToggle<CR>
 let NERDTreeWinPos="right"
 let NERDTreeAutoDeleteBuffer=1
@@ -145,20 +148,20 @@ let g:NERDTreeDirArrowCollapsible = '-'
 
 
 """"""""""""""""""""""""""""""
-" Plugin: vim-javascript 
-"""""""""""""""""""""""""""""" 
+" Plugin: vim-javascript
+""""""""""""""""""""""""""""""
 " Enables syntax highlighting for JSDocs
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 
 """"""""""""""""""""""""""""""
 " Plugin: vim-typescript
-"""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""
 setlocal indentkeys+=0
-  
+
 """"""""""""""""""""""""""""""
 " Plugin: vim-go
-"""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""
 autocmd FileType go nmap tl gd
 nmap th <C-O>
 let g:godef_split=0
@@ -169,26 +172,20 @@ let g:godef_split=0
 let g:ctrlp_map = '<C-P>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'find %s -type f'
+set wildignore+=.*.swp
 
-set wildignore+=*.swp
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
+  \ 'dir':  '\v([\/]\.(git|hg|svn)|node_modules|vendor)$',
+  \ 'file': '\v^[^\.]+$',
   \ }
 
-" ignore files in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
 """""""""""""""""""""""""""""
-" Plugin: nerdtree-git-plugin 
+" Plugin: nerdtree-git-plugin
 """""""""""""""""""""""""""""
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
-   \ "Untracked" : "✭",
+	\ "Untracked" : "✭",
     \ "Renamed"   : "➜",
     \ "Unmerged"  : "═",
     \ "Deleted"   : "✖",
@@ -203,30 +200,16 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plugin: ap/vim-buftabline
 """""""""""""""""""""""""""""
 set hidden
-nnoremap <c-K> :bnext<CR>
-nnoremap <c-J> :bprev<CR>
+nnoremap <C-K> :bnext<CR>
+nnoremap <C-J> :bprev<CR>
 nnoremap q :bdelete<CR>
-
-""""""""""""""""""""""""""""
-" Plugin: fzy
-""""""""""""""""""""""""""""
-function! FzyCommand(choice_command, vim_command)
-  try
-    let output = system(a:choice_command . " | fzy ")
-  catch /Vim:Interrupt/
-    " Swallow errors from ^C, allow redraw! below
-  endtry
-  redraw!
-  if v:shell_error == 0 && !empty(output)
-    exec a:vim_command . ' ' . output
-  endif
-endfunction
-
-nnoremap <C-P> :call FzyCommand("ag . --silent -l -g ''", ":e")<cr>
 
 """""""""""""""""""""""""""
 " Plugin: ack.vim
 """""""""""""""""""""""""""
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+nmap <C-F> :Ack<Space>
+
+"""""""""""""""""""""""""""
+" Plugin: vimproc
+"""""""""""""""""""""""""""
+nmap <C-E> :VimProcBang<Space>
