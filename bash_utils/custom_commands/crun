@@ -1,3 +1,0 @@
-#!/bin/bash
-bin_name=$(export LC_CTYPE=C && cat /dev/urandom | tr -c -d 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-gcc -o $bin_name $1 && ./$bin_name && rm -rf ./$bin_name

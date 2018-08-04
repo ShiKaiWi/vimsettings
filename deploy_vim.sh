@@ -1,13 +1,15 @@
 #!/bin/bash
 
 vundle_module=vim/.vim/bundle/Vundle.vim
-# install all the submodules
+# install vundle submodule
 git submodule init $vundle_module
 git submodule update $vundle_module
 
 # deploy the .vim and .vimrc to $HOME
-rm -rf ~/.vimrc ~/.vim
-cp -r vim/.vimrc vim/.vim ~/
-vim +PluginInstall +qall
+if [ ! -d ~/.vim ];then
+    cp -r vim/.vim ~/
+fi
+rm -rf ~/.vimrc
+cp vim/vimrc ~/.vimrc
 
-git submodule deinit $vundle_module
+vim +PluginInstall +qall
