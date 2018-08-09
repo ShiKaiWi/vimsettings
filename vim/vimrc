@@ -166,6 +166,8 @@ autocmd FileType go nmap tl gd
 nmap th <C-O>
 let g:godef_split=0
 let g:go_def_mode = 'guru'
+" unbind the key 'K'
+let g:go_doc_keywordprg_enabled = 0
 
 """""""""""""""""""""""""""""
 " Plugin: ctrlp-vim
