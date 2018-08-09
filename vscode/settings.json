@@ -43,18 +43,46 @@
     "vim.foldfix": true,
     "vim.history": 500,
     "vim.enableNeovim": true,
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
         {
             "before": [
                 "<C-n>"
             ],
             "commands": [
-                {
-                    "command": ":nohl"
-                }
+                ":nohl"
             ]
         }
     ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
     "python.linting.pylintEnabled": false,
     "python.linting.pep8Enabled": true,
     "python.linting.pep8Args": [
@@ -62,4 +90,5 @@
     ],
     "html.format.enable": false,
     "workbench.startupEditor": "newUntitledFile",
+    "go.gopath": "~/go",
 }
