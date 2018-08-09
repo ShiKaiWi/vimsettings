@@ -165,6 +165,7 @@ setlocal indentkeys+=0
 autocmd FileType go nmap tl gd
 nmap th <C-O>
 let g:godef_split=0
+let g:go_def_mode = 'guru'
 
 """""""""""""""""""""""""""""
 " Plugin: ctrlp-vim
