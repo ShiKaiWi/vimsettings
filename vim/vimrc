@@ -162,8 +162,8 @@ setlocal indentkeys+=0
 """"""""""""""""""""""""""""""
 " Plugin: vim-go
 """"""""""""""""""""""""""""""
-autocmd FileType go nmap tl gd
-nmap th <C-O>
+autocmd FileType go nmap gr :GoReferrers<CR>
+autocmd FileType go nmap gl :GoMetaLinter<CR>
 let g:godef_split=0
 let g:go_def_mode = 'guru'
 " unbind the key 'K'
