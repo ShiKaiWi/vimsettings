@@ -1,6 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""
 """ Vundle Config
 """""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -216,3 +219,9 @@ nmap <C-F> :Ack<Space>
 " Plugin: vimproc
 """""""""""""""""""""""""""
 nmap <C-E> :VimProcBang<Space>
+
+"""""""""""""""""""""""""""
+" Plugin: rust.vim
+"""""""""""""""""""""""""""
+" need install rustfmt: `rustup component add rustfmt-preview`
+let g:rustfmt_autosave = 1
