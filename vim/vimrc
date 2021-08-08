@@ -109,6 +109,8 @@ let g:session_autoload=0
 set bg=light
 color desert
 hi CursorLine term=bold cterm=bold guibg=Grey40
+hi Search ctermbg=Yellow
+hi Search ctermfg=Red
 highlight Folded ctermbg = 0
 
 """"""""""""""""""""""""""""""
